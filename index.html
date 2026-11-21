@@ -4,219 +4,54 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Айсананың шығармашылық портфолиосы. Balapan Live эфирі, Mariposa сән көрсетілімі және шығармашылық қызығушылықтары.">
-  <meta name="theme-color" content="#f8f6f2">
+  <meta name="theme-color" content="#14271f">
   <title>Айсана — шығармашылық портфолио</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      color-scheme: light;
-      --paper: #f8f6f2;
-      --ink: #201a29;
-      --muted: #5f5667;
-      --line: #dfd9df;
-      --lilac: #e7dbff;
-      --purple: #5d35a3;
-      --deep: #25173b;
-      --shell: min(1180px, calc(100% - 112px));
-      font-family: Manrope, system-ui, sans-serif;
-      font-synthesis: none;
-      scroll-behavior: smooth;
-    }
-
-    * { box-sizing: border-box; }
-    body { margin: 0; background: var(--paper); color: var(--ink); }
-    h1, h2, h3, p, figure { margin: 0; }
-    a { color: inherit; }
-    img { display: block; width: 100%; }
-    button { font: inherit; }
-    :focus-visible { outline: 3px solid #8054cb; outline-offset: 4px; }
-    [id] { scroll-margin-top: 24px; }
-    .shell { width: var(--shell); margin-inline: auto; }
-    .skip-link { position: fixed; z-index: 3; top: 12px; left: 12px; padding: 12px 18px; border-radius: 12px; background: white; transform: translateY(-150%); }
-    .skip-link:focus { transform: translateY(0); }
-
-    .header { border-bottom: 1px solid var(--line); }
-    .header-inner { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-    .brand { display: inline-flex; align-items: center; gap: 9px; font-size: 1.35rem; font-weight: 800; letter-spacing: -.05em; text-decoration: none; }
-    .brand-star { font-size: 1.1rem; color: var(--purple); }
-    .nav { display: flex; align-items: center; gap: clamp(18px, 3.5vw, 48px); }
-    .nav a { color: var(--muted); text-decoration: none; font-size: .92rem; font-weight: 700; }
-    .nav a:hover, .profile-link:hover { color: var(--purple); }
-
-    .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 552px; align-items: center; gap: clamp(40px, 7vw, 112px); padding-block: 54px 64px; }
-    .hero-copy { padding-bottom: 10px; }
-    .eyebrow { font-size: .875rem; font-weight: 800; color: var(--purple); letter-spacing: .08em; text-transform: uppercase; }
-    .hero h1 { font-size: clamp(5.1rem, 10.9vw, 10.2rem); line-height: .98; font-weight: 800; letter-spacing: -.077em; margin: 11px 0 25px -.052em; }
-    .hero p { font-size: clamp(1.04rem, 1.55vw, 1.25rem); line-height: 1.65; max-width: 34ch; color: var(--muted); }
-    .hero-links { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; margin-top: 32px; }
-    .button { display: inline-flex; gap: 10px; justify-content: center; align-items: center; min-height: 48px; padding: 12px 21px; border: 1px solid transparent; border-radius: 100px; background: var(--deep); color: white; font-size: .9375rem; font-weight: 800; text-decoration: none; transition: background .18s ease, color .18s ease; }
-    .button:hover { background: var(--purple); }
-    .profile-link { color: var(--muted); font-size: .9375rem; font-weight: 800; text-decoration-thickness: 1px; text-underline-offset: 5px; }
-    .play { display: block; flex: none; width: 0; height: 0; border-top: 6px solid transparent; border-bottom: 6px solid transparent; border-left: 9px solid currentColor; margin-left: 2px; }
-
-    .portrait { position: relative; width: 100%; max-width: 510px; aspect-ratio: 1.04; justify-self: end; padding: 23px 30px 0; display: flex; justify-content: center; isolation: isolate; }
-    .portrait::before { content: ''; position: absolute; z-index: -2; inset: 0; border-radius: 28px; background: #e8dcff; }
-    .portrait::after { content: ''; position: absolute; z-index: -1; width: 86%; height: 63%; left: 7%; bottom: 3%; border: 1px solid #bba5eb; border-radius: 50%; transform: rotate(-21deg); }
-    .portrait img { position: absolute; z-index: 1; width: 69%; height: calc(100% - 23px); bottom: 0; object-fit: cover; object-position: center 56%; border-radius: 49% 49% 0 0 / 32% 32% 0 0; background: #c7b2eb; box-shadow: 0 12px 36px #5f46963b; }
-    .sparkle { position: absolute; z-index: 2; pointer-events: none; color: var(--purple); line-height: 1; }
-    .sparkle-one { top: 12%; right: 9%; font-size: clamp(2rem, 4.4vw, 4rem); }
-    .sparkle-two { left: 7%; bottom: 18%; font-size: clamp(1.55rem, 3vw, 2.75rem); }
-    .sparkle-three { top: 26%; left: 8%; font-size: 1rem; }
-
-    .work { border-top: 1px solid var(--line); padding-block: 58px 67px; }
-    h2 { font-size: clamp(2rem, 5.3vw, 4.5rem); letter-spacing: -.056em; line-height: 1.06; font-weight: 800; }
-    .section-lead { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; margin-bottom: 25px; }
-    .feature { display: grid; grid-template-columns: 1.05fr 1fr; border-radius: 26px; overflow: hidden; background: var(--deep); color: white; }
-    .feature-media { position: relative; display: block; min-height: 360px; height: 100%; background: #3d2e56; overflow: hidden; text-decoration: none; }
-    .feature-media img { height: 100%; position: absolute; inset: 0; object-fit: cover; object-position: center 42%; transition: transform .35s ease; }
-    .feature-media:hover img { transform: scale(1.035); }
-    .feature-media:focus-visible { outline-offset: -6px; outline-color: white; }
-    .feature-media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, #170a3052, transparent 65%); }
-    .feature-play { position: absolute; z-index: 1; inset: auto auto 22px 22px; display: grid; place-items: center; width: 60px; height: 60px; border-radius: 50%; background: #f8f6f2; color: var(--deep); }
-    .feature-play .play { border-top-width: 9px; border-bottom-width: 9px; border-left-width: 14px; margin-left: 5px; }
-    .feature-copy { align-self: center; padding: clamp(28px, 5vw, 74px); }
-    .feature-copy .eyebrow { color: #d9c6fc; }
-    .feature-copy h3 { font-size: clamp(2.3rem, 5.1vw, 4.4rem); font-weight: 800; line-height: 1.04; letter-spacing: -.06em; margin-top: 8px; }
-    .feature-copy p { margin-top: 17px; color: #eee6f8; max-width: 38ch; font-size: 1.02rem; line-height: 1.7; }
-    .feature-copy .button { margin-top: 24px; background: #f1e8ff; color: var(--deep); }
-    .feature-copy .button:hover { background: white; }
-    .feature-copy .button:focus-visible { outline-color: #e7dbff; }
-    .runway { display: grid; grid-template-columns: .88fr 1.12fr; min-height: 355px; overflow: hidden; margin-top: 17px; background: #eee6fa; border-radius: 26px; }
-    .runway .feature-copy h3 { color: var(--ink); }
-    .runway .feature-copy .eyebrow { color: var(--purple); }
-    .runway .feature-copy p { color: var(--muted); }
-    .runway .feature-copy .profile-link { display: inline-block; margin-top: 22px; }
-    .runway-photos { display: grid; grid-template-columns: 1.18fr .82fr; gap: 6px; min-height: 100%; }
-    .runway-photos figure { position: relative; min-height: 100%; }
-    .runway-photos img { position: absolute; inset: 0; height: 100%; object-fit: cover; }
-    .runway-photos figure:first-child img { object-position: center 50%; }
-    .runway-photos figure:last-child img { object-position: 53% 33%; }
-
-    .interests { padding-block: 61px 69px; border-top: 1px solid var(--line); }
-    .interest-list { display: flex; flex-wrap: wrap; gap: 14px; list-style: none; padding: 0; margin: 26px 0 0; }
-    .interest-list li { background: #eee6fa; border-radius: 100px; padding: 14px 24px; font-size: 1.05rem; font-weight: 800; }
-    .interest-list li:nth-child(2) { background: #f4e7ee; }
-    .interest-list li:nth-child(3) { background: #e9e6f5; }
-
-    .contact { background: var(--lilac); }
-    .contact-inner { display: flex; align-items: center; justify-content: space-between; min-height: 185px; gap: 24px; padding-block: 36px; }
-    .contact h2 { font-size: clamp(2rem, 4.4vw, 3.8rem); }
-    .contact p { color: var(--muted); line-height: 1.6; margin-top: 10px; }
-    .footer { padding-block: 24px; }
-    .footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; }
-    .footer a:last-child { color: var(--muted); font-weight: 700; font-size: .9rem; text-underline-offset: 5px; }
-
-    .reel-dialog { width: min(760px, calc(100% - 24px)); max-height: calc(100% - 24px); padding: 0; border: 0; border-radius: 20px; background: white; color: var(--ink); }
-    .reel-dialog::backdrop { background: #1e112de0; }
-    .dialog-head, .dialog-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 18px; }
-    .dialog-head h2 { font-size: 1.25rem; letter-spacing: -.04em; }
-    .dialog-close { display: grid; place-items: center; width: 42px; height: 42px; border: 0; border-radius: 50%; background: var(--lilac); color: var(--ink); font-size: 1.5rem; cursor: pointer; }
-    .reel-player { display: block; width: 100%; aspect-ratio: 16 / 9; max-height: 70dvh; background: #1e112d; }
-    .dialog-footer { justify-content: center; }
-
-    @media (max-width: 920px) {
-      :root { --shell: calc(100% - 64px); }
-      .hero { gap: 36px; min-height: auto; }
-      .portrait { padding: 16px 19px 0; }
-      .portrait img { height: calc(100% - 16px); }
-      .feature-media { min-height: 300px; }
-    }
-    @media (max-width: 760px) {
-      :root { --shell: calc(100% - 36px); }
-      .header-inner { min-height: 64px; gap: 12px; }
-      .nav { gap: 14px; }
-      .nav a { font-size: .875rem; }
-      .nav .interests-link { display: none; }
-      .hero { grid-template-columns: 1fr; gap: 23px; padding-block: 35px 40px; }
-      .hero-copy { padding-bottom: 0; }
-      .hero h1 { font-size: clamp(4.8rem, 18vw, 7.3rem); margin-bottom: 15px; }
-      .hero-links { gap: 14px 18px; margin-top: 20px; }
-      .portrait { max-width: none; aspect-ratio: 1.13; padding-top: 15px; }
-      .work, .interests { padding-block: 40px; }
-      .section-lead { margin-bottom: 18px; }
-      .feature { grid-template-columns: 1fr; }
-      .feature-media { min-height: 235px; aspect-ratio: 1.5; }
-      .feature-copy { padding: 24px; }
-      .feature-play { inset: auto auto 15px 15px; width: 48px; height: 48px; }
-      .runway { grid-template-columns: 1fr; min-height: 0; }
-      .runway-photos { grid-row: 1; aspect-ratio: 1.24; }
-      .interest-list { margin-top: 20px; gap: 8px; }
-      .interest-list li { padding: 9px 16px; }
-      .contact-inner { align-items: flex-start; flex-direction: column; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      :root { scroll-behavior: auto; }
-      *, *::before, *::after { transition: none !important; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="portfolio.js" defer></script>
 </head>
-<body>
+<body id="top">
   <a class="skip-link" href="#main">Негізгі мазмұнға өту</a>
-  <header class="header" id="top">
+  <header class="site-header">
     <div class="shell header-inner">
-      <a class="brand" href="#top"><span class="brand-star" aria-hidden="true">✦</span> Айсана</a>
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true">А</span>
+        Айсана
+      </a>
       <nav class="nav" aria-label="Бөлімдер">
         <a href="#work">Жобалар</a>
-        <a class="interests-link" href="#interests">Қызығушылықтар</a>
+        <a href="#interests">Қызығушылықтар</a>
         <a href="#contact">Байланыс</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <section class="shell hero" aria-labelledby="name">
-      <div class="hero-copy">
-        <div class="eyebrow">Шығармашылық портфолио</div>
-        <h1 id="name">Айсана</h1>
-        <p>Вокал мен биге қызығатын жас өнерпаз. Balapan Live эфиріне және сән көрсетіліміне қатысқан.</p>
-        <div class="hero-links">
-          <a class="button" href="#work">Жобаларды көру</a>
-          <a class="profile-link" href="https://www.instagram.com/aisana_kairzhan/" target="_blank" rel="noopener noreferrer">@aisana_kairzhan</a>
+    <section class="hero" aria-labelledby="name">
+      <div class="shell hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Шығармашылық портфолио</p>
+          <h1 id="name">Айсана</h1>
+          <p class="hero-intro">Вокал мен биге қызығатын жас өнерпаз. Balapan Live эфиріне және сән көрсетіліміне қатысқан.</p>
+          <div class="hero-actions">
+            <a class="button button-accent" href="#work">Жобаларды көру</a>
+            <a class="profile-link" href="https://www.instagram.com/aisana_kairzhan/" target="_blank" rel="noopener noreferrer">@aisana_kairzhan</a>
+          </div>
         </div>
-      </div>
-      <figure class="portrait">
-        <img src="assets/aisana.webp" alt="Айсананың портреті" fetchpriority="high">
-        <span class="sparkle sparkle-one" aria-hidden="true">✦</span>
-        <span class="sparkle sparkle-two" aria-hidden="true">✧</span>
-        <span class="sparkle sparkle-three" aria-hidden="true">✦</span>
-      </figure>
-    </section>
-
-    <section class="work" id="work" aria-labelledby="work-title">
-      <div class="shell">
-        <div class="section-lead"><h2 id="work-title">Шығармашылық жобалар</h2></div>
-        <article class="feature">
-          <a class="feature-media" data-reel href="https://www.instagram.com/reel/DPeegGICgiC/" target="_blank" rel="noopener noreferrer" aria-label="Balapan Live үзіндісін көру">
-            <img src="assets/balapan-live.webp" alt="" loading="lazy">
-            <span class="feature-play" aria-hidden="true"><span class="play"></span></span>
-          </a>
-          <div class="feature-copy">
-            <div class="eyebrow">Телеэфир · 2025</div>
-            <h3>Balapan Live</h3>
-            <p>Эфирде Айсана Димаш пен Sadraddin-мен бір сахнада ән айтуды және комедия жанрында актриса болуды армандайтынын айтты.</p>
-            <a class="button" data-reel href="https://www.instagram.com/reel/DPeegGICgiC/" target="_blank" rel="noopener noreferrer">Үзіндіні көру</a>
+        <figure class="hero-portrait">
+          <div class="portrait-window">
+            <img src="assets/mariposa-portrait.webp" alt="Айсана Mariposa сән көрсетілімінде" fetchpriority="high">
           </div>
-        </article>
-        <article class="runway">
-          <div class="feature-copy">
-            <div class="eyebrow">Сән көрсетілімі · 2026</div>
-            <h3>Mariposa</h3>
-            <p>Айсана Taj Models ұйымдастырған көрсетілімде Bella Models School атынан Mariposa киімімен подиумға шықты.</p>
-            <a class="profile-link" href="https://www.instagram.com/p/DfuYbRcinoU/" target="_blank" rel="noopener noreferrer">Фотосерияны көру</a>
-          </div>
-          <div class="runway-photos">
-            <figure><img src="assets/mariposa-runway.webp" alt="Айсана Mariposa сән көрсетілімінің подиумында" loading="lazy"></figure>
-            <figure><img src="assets/mariposa-portrait.webp" alt="Сән көрсетіліміндегі Айсананың портреті" loading="lazy"></figure>
-          </div>
-        </article>
+          <figcaption>Mariposa сән көрсетілімі</figcaption>
+        </figure>
       </div>
     </section>
 
-    <section class="interests" id="interests" aria-labelledby="interests-title">
-      <div class="shell">
-        <h2 id="interests-title">Қызығушылықтар</h2>
+    <section class="interest-strip" id="interests" aria-labelledby="interests-title">
+      <div class="shell interest-inner">
+        <h2 class="eyebrow" id="interests-title">Қызығушылықтар</h2>
         <ul class="interest-list">
           <li>Вокал</li>
           <li>Би</li>
@@ -225,48 +60,63 @@
       </div>
     </section>
 
-    <section class="contact" id="contact" aria-labelledby="contact-title">
-      <div class="shell contact-inner">
-        <div>
-          <h2 id="contact-title">Байланыс</h2>
-          <p>Шығармашылық ұсыныстар үшін Instagram-ға жазыңыз.</p>
+    <section class="work shell" id="work" aria-labelledby="work-title">
+      <h2 class="section-title" id="work-title" data-reveal>Шығармашылық жобалар</h2>
+
+      <article class="project project-video" aria-labelledby="balapan-title">
+        <a class="project-media video-thumbnail" data-reveal data-reel href="https://www.instagram.com/reel/DPeegGICgiC/" target="_blank" rel="noopener noreferrer" aria-label="Balapan Live үзіндісін көру">
+          <img src="assets/balapan-live.webp" alt="" loading="lazy">
+          <span class="play-disc" aria-hidden="true"><span class="play-icon"></span></span>
+        </a>
+        <div class="project-copy" data-reveal="delayed">
+          <p class="eyebrow project-kind">Телеэфир <span>2025</span></p>
+          <h3 id="balapan-title">Balapan Live</h3>
+          <p class="project-description">Эфирде Айсана Димаш пен Sadraddin-мен бір сахнада ән айтуды және комедия жанрында актриса болуды армандайтынын айтты.</p>
+          <a class="button button-outline" data-reel href="https://www.instagram.com/reel/DPeegGICgiC/" target="_blank" rel="noopener noreferrer"><span class="play-icon" aria-hidden="true"></span> Үзіндіні көру</a>
         </div>
-        <a class="button" href="https://www.instagram.com/aisana_kairzhan/" target="_blank" rel="noopener noreferrer">Instagram профилі</a>
+      </article>
+
+      <article class="project project-runway" aria-labelledby="mariposa-title">
+        <div class="project-copy" data-reveal>
+          <p class="eyebrow project-kind">Сән көрсетілімі <span>2026</span></p>
+          <h3 id="mariposa-title">Mariposa</h3>
+          <p class="project-description">Айсана Taj Models ұйымдастырған көрсетілімде Bella Models School атынан Mariposa киімімен подиумға шықты.</p>
+          <a class="button button-outline" href="https://www.instagram.com/p/DfuYbRcinoU/" target="_blank" rel="noopener noreferrer">Фотосерияны көру</a>
+        </div>
+        <div class="runway-photos" data-reveal="delayed">
+          <figure class="project-media"><img src="assets/mariposa-runway.webp" alt="Айсана Mariposa сән көрсетілімінің подиумында" loading="lazy"></figure>
+          <figure class="project-media"><img src="assets/mariposa-show.webp" alt="Айсана көрсетілімде ақ қолшатыр ұстап тұр" loading="lazy"></figure>
+        </div>
+      </article>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="shell contact-inner" data-reveal>
+        <h2 class="section-title" id="contact-title">Байланыс</h2>
+        <div>
+          <p>Шығармашылық ұсыныстар үшін Instagram-ға жазыңыз.</p>
+          <a class="button button-dark" href="https://www.instagram.com/aisana_kairzhan/" target="_blank" rel="noopener noreferrer">Instagram профилі</a>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
+  <footer class="site-footer">
     <div class="shell footer-inner">
-      <a class="brand" href="#top"><span class="brand-star" aria-hidden="true">✦</span> Айсана</a>
-      <a href="https://www.instagram.com/reel/DPeegGICgiC/" target="_blank" rel="noopener noreferrer">Түпнұсқа Reel</a>
+      <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">А</span> Айсана</a>
+      <a class="profile-link" href="https://www.instagram.com/reel/DPeegGICgiC/" target="_blank" rel="noopener noreferrer">Түпнұсқа Reel</a>
     </div>
   </footer>
 
   <dialog class="reel-dialog" aria-labelledby="dialog-title">
     <div class="dialog-head">
       <h2 id="dialog-title">Balapan Live</h2>
-      <form method="dialog"><button class="dialog-close" aria-label="Жабу">×</button></form>
+      <form method="dialog"><button class="dialog-close" aria-label="Жабу" autofocus>×</button></form>
     </div>
     <video class="reel-player" controls playsinline preload="none" poster="assets/balapan-live.webp" data-src="assets/balapan-live.mp4" aria-label="Balapan Live эфирінің үзіндісі"></video>
-    <div class="dialog-footer"><a class="profile-link" href="https://www.instagram.com/reel/DPeegGICgiC/" target="_blank" rel="noopener noreferrer">Instagram-да көру</a></div>
+    <div class="dialog-footer">
+      <a class="profile-link" href="https://www.instagram.com/reel/DPeegGICgiC/" target="_blank" rel="noopener noreferrer">Instagram-да көру</a>
+    </div>
   </dialog>
-
-  <script>
-    const dialog = document.querySelector('.reel-dialog');
-    const player = document.querySelector('.reel-player');
-
-    for (const link of document.querySelectorAll('[data-reel]')) {
-      link.addEventListener('click', (event) => {
-        if (!dialog.showModal || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-        event.preventDefault();
-        if (!player.src) player.src = player.dataset.src;
-        dialog.showModal();
-        player.play().catch(() => {});
-      });
-    }
-
-    dialog.addEventListener('close', () => player.pause());
-  </script>
 </body>
 </html>
